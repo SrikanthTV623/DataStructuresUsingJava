@@ -1,9 +1,6 @@
 package strings.basics;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class myStrings {
 
@@ -168,6 +165,7 @@ public class myStrings {
         return  "Not found";
     }
 
+    //Generate All Possible Substrings of a String
     public static void getAllSubStrings(String input){
         /*
         //1st code
@@ -192,7 +190,29 @@ public class myStrings {
                 System.out.print(sb.toString() + " ");
             }
         }
-
     }
 
+    //Find the First and Last Index of Occurrence for Each Character in a String
+    public static void getIndexOfOccurrenceCharacters(String input){
+        Map<Character, List<Integer>> map = new HashMap<>();
+
+        char charArray[] = input.toCharArray();
+        for(int i = 0; i < charArray.length; i++){
+            map.putIfAbsent(charArray[i],new ArrayList<>());
+            map.get(charArray[i]).add(i);
+        }
+        System.out.println(map);
+
+        for(Map.Entry<Character, List<Integer>> entry : map.entrySet()){
+            char key = entry.getKey();
+            List<Integer> values = entry.getValue();
+
+            if(!values.isEmpty()){
+                int first = values.get(0);
+                int last = values.get(values.size() - 1);
+
+                System.out.println("Character: " + key + ", First Index: " + first + ", Last Index: " + last);
+            }
+        }
+    }
 }

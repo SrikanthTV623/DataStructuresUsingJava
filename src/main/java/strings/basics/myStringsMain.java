@@ -30,6 +30,8 @@ public class myStringsMain {
 
 //        System.out.println(ms.findingSpecificSubString("Hello World", "llo"));
 
-        ms.getAllSubStrings(input);
+//        ms.getAllSubStrings(input);
+
+        ms.getIndexOfOccurrenceCharacters(input);
     }
 }
